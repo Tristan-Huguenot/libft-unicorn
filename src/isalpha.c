@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalpha_test.c                                     :+:      :+:    :+:   */
+/*   isalpha.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 22:18:56 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/06 00:32:19 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/06 04:34:54 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static void	test(int c)
 {
-	printf("\n\tChar = %c\n", c);
-	printf("\n\tisalpha outpout :%d\n\n", ((isalpha(c) > 0) * 1));
-	printf("\n\tft_isalpha outpout = %d\n", ft_isalpha(c));
+	printf("\n\tChar : %c\n", c);
+	printf("\n\tisalpha outpout : %d\n\n", ((isalpha(c) > 0) * 1));
+	printf("\n\tft_isalpha outpout : %d\n", ft_isalpha(c));
 	separator();
 }
 

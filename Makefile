@@ -6,7 +6,7 @@
 #    By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 21:51:01 by thugueno          #+#    #+#              #
-#    Updated: 2022/10/06 00:13:57 by thugueno         ###   ########.fr        #
+#    Updated: 2022/10/06 04:42:43 by thugueno         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,14 @@ INCLUDE		=	-L./include/ -lft
 
 SRCDIR		=	src/
 
-SRC			=	src/isalpha_test.c	\
-				src/isdigit_test.c	\
-				src/isalnum_test.c	\
-				src/isascii_test.c	\
-				src/isprint_test.c	\
+SRC			=	src/isalpha.c	\
+				src/isdigit.c	\
+				src/isalnum.c	\
+				src/isascii.c	\
+				src/isprint.c	\
+				src/strlen.c	\
+				src/memset.c	\
+				src/bzero.c		\
 
 OBJDIR		=	obj/
 
@@ -45,15 +48,15 @@ RM			=	rm -f
 ${OBJDIR}%.o	::	${SRCDIR}%.c
 				${CC} ${CFLAGS} -c $< -o $@
 
+${BINARYDIR}%	::	${OBJDIR}%.o
+				${CC} ${CFLAGS} ${@:${BINARYDIR}%=${OBJDIR}%.o} ${INCLUDE} -o $@
+
 ${NAME}:		libft ${OBJ} ${BINARY}
 
 libft:
 				make -C ${LIBFTDIR}
-				cp ${LIBFTDIR}${LIBFT} ./include/${LIBFT}
-				cp ${LIBFTDIR}${HEADER} ./include/${HEADER}
-
-${BINARY}:		${$@:${BINARYDIR}%=${OBJDIR}%.o}
-				${CC} ${CFLAGS} ${@:${BINARYDIR}%=${OBJDIR}%.o} ${INCLUDE} -o $@
+				@cp ${LIBFTDIR}${LIBFT} ./include/${LIBFT}
+				@cp ${LIBFTDIR}${HEADER} ./include/${HEADER}
 
 m:				${BINARY}
 				@${foreach binary,${BINARY},${binary} | cat -v;}

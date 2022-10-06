@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isascii_test.c                                     :+:      :+:    :+:   */
+/*   isascii.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 22:18:56 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/06 00:32:29 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/06 04:37:26 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static void	test(int c)
 {
-	printf("\n\tChar = %c\n", c);
-	printf("\n\tisascii outpout = %d\n", ((isascii(c) > 0) * 1));
-	printf("\n\tft_isascii outpout = %d\n", ft_isascii(c));
+	printf("\n\tChar : %c\n", c);
+	printf("\n\tisascii outpout : %d\n", ((isascii(c) > 0) * 1));
+	printf("\n\tft_isascii outpout : %d\n", ft_isascii(c));
 	separator();
 }
 
