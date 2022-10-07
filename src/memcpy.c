@@ -6,7 +6,7 @@
 /*   By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 03:44:36 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/06 15:50:04 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/06 20:51:42 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	test(int bytes)
 	printf("\n\tmemcpy : %s\n", (char *)ptr);
 	printf("\n\tft_memcpy : %s\n", (char *)ptr + 21);
 	separator();
+	free(ptr);
 }
 
 int	main(int ac, char **av)
@@ -40,9 +41,12 @@ int	main(int ac, char **av)
 			test(atoi(av[1]));
 	}
 	else if (ac > 2)
-		printf("usage: memset [number of bytes to copy, up to 21]");
+		printf("usage: memcpy [number of bytes to copy, up to 21]");
 	else
+	{
 		test(3);
+		test(0);
+	}
 	end_function();
 	return (0);
 }

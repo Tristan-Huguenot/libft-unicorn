@@ -1,65 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bzero.c                                            :+:      :+:    :+:   */
+/*   memmove.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 03:44:36 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/06 20:45:08 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/06 20:59:22 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libunicorn.h"
 
-static void putnbyte(char *s, int bytes)
-{
-	int	i;
-	
-	i = 0;
-	while (i < bytes)
-	{
-		printf("%c", (s[i]) + '0');
-		i++;
-	}
-	printf("\n");
-}
-
 static void	test(int bytes)
 {
-	void	*ptr;
+	char	*s = "Hello World !";
 
-	ptr = calloc(bytes * 2, bytes * 2);
 	if (!ptr)
 		return ;
+	bzero(ptr, 43);
 	printf("\n\tNumber of bytes : %d\n", bytes);
-	bzero(ptr, bytes);
-	printf("\n\tbzero : ");
-	putnbyte(ptr, bytes);
-	ft_bzero(ptr + bytes, bytes);
-	printf("\n\tft_bzero : ");
-	putnbyte(ptr + bytes, bytes);
+	memcpy(ptr, "Hello World !", bytes);
+	ft_memcpy(ptr + 21, "Hello World !", bytes);
+	printf("\n\tmemcpy : %s\n", (char *)ptr);
+	printf("\n\tft_memcpy : %s\n", (char *)ptr + 21);
 	separator();
-	free(ptr);
 }
 
 int	main(int ac, char **av)
 {
-	start_function("bzero");
+	start_function("memmove");
 	separator();
 	if (ac == 2)
 	{
-		if (atoi(av[1]) >= 0)
-			test(atoi(av[1]));
+		if (strcmp(av[1], "NOVLAP"))
+			test_1();
+		else if (strcmp(av[1], "OVLAP"))
+			test_2();
+		else if (strcmp(av[1], "ROVLAP"))
+			test_3();
 		else
-			printf("number of bytes need to be positive");
+			printf("usage: memmove [NOVLAP/OVLAP/ROVLAP]")
 	}
-	else if (ac > 2)
-		printf("usage: bzero [number of bytes to set]");
 	else
 	{
-		test(21);
-		test(0);
+		test_1(3);
+		test_2(3);
+		test_3(3);
 	}
 	end_function();
 	return (0);
