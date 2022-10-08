@@ -6,7 +6,7 @@
 /*   By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 03:44:36 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/06 20:51:42 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/08 11:37:24 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static void	test(int bytes)
 	if (!ptr)
 		return ;
 	bzero(ptr, 43);
+	printf("\n\tmem to cpy : %s\n", "Hello World !");
 	printf("\n\tNumber of bytes : %d\n", bytes);
 	memcpy(ptr, "Hello World !", bytes);
 	ft_memcpy(ptr + 21, "Hello World !", bytes);

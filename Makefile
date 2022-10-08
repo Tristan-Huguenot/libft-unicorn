@@ -6,7 +6,7 @@
 #    By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 21:51:01 by thugueno          #+#    #+#              #
-#    Updated: 2022/10/06 20:48:22 by thugueno         ###   ########.fr        #
+#    Updated: 2022/10/08 12:43:59 by thugueno         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBFT		=	libft.a
 
 HEADER		=	libft.h
 
-INCLUDE		=	-L./include/ -lft
+INCLUDE		=	-lbsd -L./include/ -lft
 
 SRCDIR		=	src/
 
@@ -32,6 +32,8 @@ SRC			=	src/isalpha.c	\
 				src/bzero.c		\
 				src/memcpy.c	\
 				src/memmove.c	\
+				src/strlcpy.c	\
+				src/strlcat.c	\
 
 OBJDIR		=	obj/
 

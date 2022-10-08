@@ -6,7 +6,7 @@
 /*   By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 22:30:52 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/06 04:13:06 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/08 12:35:41 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <ctype.h>
 # include <string.h>
+# include <bsd/string.h>
 # include <stdlib.h>
 # include "libft.h"
 
