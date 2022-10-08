@@ -6,7 +6,7 @@
 #    By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 21:51:01 by thugueno          #+#    #+#              #
-#    Updated: 2022/10/08 12:43:59 by thugueno         ###   ########.fr        #
+#    Updated: 2022/10/08 16:06:49 by thugueno         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,11 @@ SRC			=	src/isalpha.c	\
 				src/memmove.c	\
 				src/strlcpy.c	\
 				src/strlcat.c	\
+				src/toupper.c	\
+				src/tolower.c	\
+				src/strchr.c	\
+				src/strrchr.c	\
+				src/strncmp.c	\
 
 OBJDIR		=	obj/
 
