@@ -6,7 +6,7 @@
 /*   By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 12:02:37 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/08 12:42:12 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/09 08:02:39 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	test(size_t size)
 	memset(dest, '.', len);
 	printf("\n\tft_strlcpy:\t%lu\n", ft_strlcpy(dest, src, size));
 	printf("\n\tdest:\t%s\n", dest);
+	free(dest);
 	separator();
 }
 

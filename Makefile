@@ -6,7 +6,7 @@
 #    By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 21:51:01 by thugueno          #+#    #+#              #
-#    Updated: 2022/10/08 20:35:03 by thugueno         ###   ########.fr        #
+#    Updated: 2022/10/09 07:48:55 by thugueno         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,8 @@ SRC			=	src/isalpha.c	\
 				src/memcmp.c	\
 				src/strnstr.c	\
 				src/atoi.c		\
+				src/calloc.c	\
+				src/strdup.c	\
 
 OBJDIR		=	obj/
 
@@ -72,7 +74,7 @@ libft:
 				@cp ${LIBFTDIR}${HEADER} ./include/${HEADER}
 
 m:				${BINARY}
-				@${foreach binary,${BINARY},${binary} | cat -v;}
+				@${foreach binary,${BINARY},valgrind ${binary} | cat -v;}
 
 all:			${NAME}
 

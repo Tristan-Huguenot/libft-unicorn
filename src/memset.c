@@ -6,7 +6,7 @@
 /*   By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 03:44:36 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/08 11:34:21 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/09 08:07:38 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	test(char c, int bytes)
 		printf("\n\tft_memset = %s\n", (char *)ft_memset(NULL, c, bytes));
 		return ;
 	}
-	ptr = calloc(bytes * 2, 1);
+	ptr = calloc(bytes * 2 + 1, 1);
 	if (!ptr)
 		return ;
 	printf("\n\tChar to set : %c\n", c);

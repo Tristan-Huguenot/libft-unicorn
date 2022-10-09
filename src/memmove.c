@@ -6,7 +6,7 @@
 /*   By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 03:44:36 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/08 11:55:28 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/09 08:01:41 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void	test_1(void)
 	printf("\n\tmemory before:\t%s\n", s);
 	ft_memmove(dest, src, len);
 	printf("\n\tmemory after:\t%s\n", s);
+	free(s);
 	separator();
 }
 
@@ -55,6 +56,7 @@ static void	test_2(void)
 	printf("\n\tmemory before:\t%s\n", s);
 	ft_memmove(dest, src, len);
 	printf("\n\tmemory after:\t%s\n", s);
+	free(s);
 	separator();
 }
 
@@ -78,6 +80,7 @@ static void	test_3(void)
 	printf("\n\tmemory before:\t%s\n", s);
 	ft_memmove(dest, src, len);
 	printf("\n\tmemory after:\t%s\n", s);
+	free(s);
 	separator();
 }
 
