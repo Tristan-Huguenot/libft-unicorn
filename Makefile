@@ -6,7 +6,7 @@
 #    By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 21:51:01 by thugueno          #+#    #+#              #
-#    Updated: 2022/10/10 01:10:08 by thugueno         ###   ########.fr        #
+#    Updated: 2022/10/11 18:06:23 by thugueno         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,13 +57,20 @@ SRC			=	src/isalpha.c		\
 				src/putendl_fd.c	\
 				src/putnbr_fd.c		\
 
+BONUS_SRC	=	src/lstnew.c		\
+				src/lstadd_front.c	\
+
 OBJDIR		=	obj/
 
 OBJ			=	${SRC:${SRCDIR}%.c=${OBJDIR}%.o}
 
+BONUS_OBJ	=	${BONUS_SRC:${SRCDIR}%.c=${OBJDIR}%.o}
+
 BINARYDIR	=	binary/
 
 BINARY		=	${SRC:${SRCDIR}%.c=${BINARYDIR}%}
+
+BBINARY		=	${BONUS_SRC:${SRCDIR}%.c=${BINARYDIR}%}
 
 CC			=	gcc
 
@@ -84,8 +91,17 @@ libft:
 				@cp ${LIBFTDIR}${LIBFT} ./include/${LIBFT}
 				@cp ${LIBFTDIR}${HEADER} ./include/${HEADER}
 
-m:				${BINARY}
+libft_b:
+				make bonus -C ${LIBFTDIR}
+				@cp ${LIBFTDIR}${LIBFT} ./include/${LIBFT}
+
+bonus:			${NAME} libft_b ${BONUS_OBJ} ${BBINARY}
+
+m:				${NAME} ${BINARY}
 				@${foreach binary,${BINARY},valgrind ${binary} | cat -v;}
+
+b:				bonus
+				@${foreach binary,${BBINARY},valgrind ${binary} | cat -v;}
 
 all:			${NAME}
 
@@ -94,10 +110,11 @@ clean:
 				${RM} ./include/${HEADER}
 				${RM} ./include/${LIBFT}
 				${RM} ${OBJ}
+				${RM} ${BONUS_OBJ}
 
 fclean:			clean
 				${RM} ${LIBFTDIR}${LIBFT}
-				${RM} ${foreach file,${SRC},${SRC:${SRCDIR}%.c=${BINARYDIR}%}}
+				${RM} ${BINARY} ${BBINARY}
 
 re:				fclean all
 
