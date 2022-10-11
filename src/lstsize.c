@@ -1,60 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lstadd_front.c                                     :+:      :+:    :+:   */
+/*   lstsize.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <thugueno@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:09:34 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/11 18:29:45 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/11 18:49:32 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libunicorn.h"
 
-static void	show_list(t_list *list)
+static void	free_list(t_list *list)
 {
-	size_t	i;
+	t_list	*tmp;
 
-	i = 0;
 	while (list)
 	{
-		printf("\n\t%lu element:\t%s\n", i, (char *)list->content);
-		printf("\n\tnext:\t\t%p\n", list->next);
-		i++;
+		tmp = list;
 		list = list->next;
+		free(tmp);
 	}
+	free(list);
 }
 
 static void	test(t_list **list)
 {
-	t_list	*new;
-	t_list	*more_new;
-
-	new = ft_lstnew("new");
-	ft_lstadd_front(list, new);
-	show_list(*list);
-	more_new = ft_lstnew("more_new");
-	ft_lstadd_front(list, more_new);
-	separator();
-	show_list(*list);
-	free(new);
-	free(more_new);
+	printf("\n\tlstsize:\t%d\n", ft_lstsize(*list));
 	separator();
 }
 
 int	main(void)
 {
 	t_list	**list;
-	t_list	*el;
+	int		i;
 
 	list = malloc(sizeof(*list));
-	el = ft_lstnew("first");
-	*list = el;
-	start_function("lstadd_front");
+	if (!list)
+		return (1);
+	i = 0;
+	*list = ft_lstnew(ft_itoa(i));
+	while (i < 10)
+	{
+		i++;
+		ft_lstadd_front(list, ft_lstnew(ft_itoa(i)));
+	}
+	start_function("lstsize");
 	separator();
 	test(list);
-	free(el);
+	free_list(*list);
 	free(list);
 	end_function();
 }
