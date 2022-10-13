@@ -6,7 +6,7 @@
 #    By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 21:51:01 by thugueno          #+#    #+#              #
-#    Updated: 2022/10/13 01:38:53 by thugueno         ###   ########.fr        #
+#    Updated: 2022/10/13 16:10:45 by thugueno         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,12 @@ SRC			=	src/isalpha.c		\
 BONUS_SRC	=	src/lstnew.c		\
 				src/lstadd_front.c	\
 				src/lstsize.c		\
+				src/lstlast.c		\
+				src/lstadd_back.c	\
+				src/lstdelone.c		\
+				src/lstclear.c		\
+				src/lstiter.c		\
+				src/lstmap.c		\
 
 OBJDIR		=	obj/
 

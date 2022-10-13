@@ -1,46 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lstadd_front.c                                     :+:      :+:    :+:   */
+/*   lstdelone.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <thugueno@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 15:09:34 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/13 14:07:48 by thugueno         ###   ########.fr       */
+/*   Created: 2022/10/13 13:45:04 by thugueno          #+#    #+#             */
+/*   Updated: 2022/10/13 15:24:20 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libunicorn.h"
 
-static void	test(t_list **list)
+static void	test(void)
 {
-	t_list	*new;
-	t_list	*more_new;
+	t_list	*lst;
+	t_list	*tmp;
 
-	new = ft_lstnew("new");
-	ft_lstadd_front(list, new);
-	show_list(*list);
-	more_new = ft_lstnew("more_new");
-	ft_lstadd_front(list, more_new);
-	separator();
-	show_list(*list);
-	free(new);
-	free(more_new);
-	separator();
+	lst = ft_lstnew(ft_strdup("Hello"));
+	ft_lstadd_back(&lst, ft_lstnew(ft_strdup("World")));
+	ft_lstadd_back(&lst, ft_lstnew(ft_strdup("!")));
+	show_list(lst);
+	printf("\n\tlstdelone:");
+	ft_lstdelone(ft_lstlast(lst), &delete_content);
+	lst->next->next = NULL;
+	show_list(lst);
+	while (lst)
+	{
+		tmp = lst;
+		lst = lst->next;
+		free(tmp->content);
+		free(tmp);
+	}
+	ft_lstdelone(NULL, NULL);
 }
 
 int	main(void)
 {
-	t_list	**list;
-	t_list	*el;
-
-	list = malloc(sizeof(*list));
-	el = ft_lstnew("first");
-	*list = el;
-	start_function("lstadd_front");
+	start_function("lstdelone");
 	separator();
-	test(list);
-	free(el);
-	free(list);
+	test();
 	end_function();
+	return (0);
 }

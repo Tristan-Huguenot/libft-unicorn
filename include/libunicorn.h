@@ -6,7 +6,7 @@
 /*   By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 22:30:52 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/13 13:03:47 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:23:08 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,13 @@ void	show_list(t_list *list)
 		i++;
 		list = list->next;
 	}
+}
+
+void	delete_content(void *content)
+{
+	if (!content)
+		return ;
+	free(content);
 }
 
 #endif
