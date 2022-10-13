@@ -6,25 +6,11 @@
 /*   By: thugueno <thugueno@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:09:34 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/11 18:29:45 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/13 13:04:28 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libunicorn.h"
-
-static void	show_list(t_list *list)
-{
-	size_t	i;
-
-	i = 0;
-	while (list)
-	{
-		printf("\n\t%lu element:\t%s\n", i, (char *)list->content);
-		printf("\n\tnext:\t\t%p\n", list->next);
-		i++;
-		list = list->next;
-	}
-}
 
 static void	test(t_list **list)
 {

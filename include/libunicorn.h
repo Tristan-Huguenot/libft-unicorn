@@ -6,7 +6,7 @@
 /*   By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 22:30:52 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/09 07:23:05 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/13 13:03:47 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,20 @@ void	start_function(char *s)
 void	end_function(void)
 {
 	printf("\n\t\t----------|\n");
+}
+
+void	show_list(t_list *list)
+{
+	size_t	i;
+
+	i = 0;
+	while (list)
+	{
+		printf("\n\t%lu element:\t%s\n", i, (char *)list->content);
+		printf("\n\tnext:\t\t%p\n", list->next);
+		i++;
+		list = list->next;
+	}
 }
 
 #endif
