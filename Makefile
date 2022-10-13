@@ -6,7 +6,7 @@
 #    By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 21:51:01 by thugueno          #+#    #+#              #
-#    Updated: 2022/10/13 16:10:45 by thugueno         ###   ########.fr        #
+#    Updated: 2022/10/13 22:40:59 by thugueno         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBFT		=	libft.a
 
 HEADER		=	libft.h
 
-INCLUDE		=	-lbsd -L./include/ -lft
+INCLUDE		=	-L./include/ -lft
 
 SRCDIR		=	src/
 
@@ -67,6 +67,10 @@ BONUS_SRC	=	src/lstnew.c		\
 				src/lstiter.c		\
 				src/lstmap.c		\
 
+LBSD_NEED	=	binary/strlcat		\
+				binary/strlcpy		\
+				binary/strnstr		\
+
 OBJDIR		=	obj/
 
 OBJ			=	${SRC:${SRCDIR}%.c=${OBJDIR}%.o}
@@ -89,7 +93,7 @@ ${OBJDIR}%.o	::	${SRCDIR}%.c
 				${CC} ${CFLAGS} -c $< -o $@
 
 ${BINARYDIR}%	::	${OBJDIR}%.o
-				${CC} ${CFLAGS} ${@:${BINARYDIR}%=${OBJDIR}%.o} ${INCLUDE} -o $@
+				${CC} ${CFLAGS} ${@:${BINARYDIR}%=${OBJDIR}%.o} ${INCLUDE} ${if ${findstring $@, ${LBSD_NEED}},-lbsd,} -o $@
 
 all:			${NAME}
 
