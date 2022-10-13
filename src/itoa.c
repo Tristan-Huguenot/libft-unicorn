@@ -6,7 +6,7 @@
 /*   By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 00:16:55 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/10 01:10:49 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/13 01:41:18 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	test(int n)
 
 int	main(int ac, char **av)
 {
-	start_function("split");
+	start_function("itoa");
 	separator();
 	if (ac > 1)
 	{
