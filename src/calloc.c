@@ -6,11 +6,21 @@
 /*   By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:23:22 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/09 07:35:02 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/14 12:13:52 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libunicorn.h"
+
+static void	test_0(void)
+{
+	void	*ptr;
+
+	ptr = ft_calloc(1, 0);
+	free(ptr);
+	ptr = ft_calloc(0, 1);
+	free(ptr);
+}
 
 static void	test(void)
 {
@@ -32,6 +42,7 @@ int	main(void)
 	start_function("calloc");
 	separator();
 	test();
+	test_0();
 	end_function();
 	return (0);
 }
