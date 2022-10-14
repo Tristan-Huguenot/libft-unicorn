@@ -6,7 +6,7 @@
 /*   By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:23:22 by thugueno          #+#    #+#             */
-/*   Updated: 2022/10/14 12:13:52 by thugueno         ###   ########.fr       */
+/*   Updated: 2022/10/14 16:12:08 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	test(void)
 	printf("\n\tmemcmp:\t\t%d\n", memcmp(ptr1, ptr2, 42));
 	free(ptr1);
 	free(ptr2);
-	ptr2 = ft_calloc(INT_MAX, INT_MAX);
+	ptr2 = ft_calloc(LLONG_MAX, 1);
 	printf("\n\toverflow:\t%p\n", ptr2);
 	separator();
 }
