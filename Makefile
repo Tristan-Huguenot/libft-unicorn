@@ -6,7 +6,7 @@
 #    By: thugueno <thugueno@student.42angouleme.fr  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 21:51:01 by thugueno          #+#    #+#              #
-#    Updated: 2022/10/13 22:40:59 by thugueno         ###   ########.fr        #
+#    Updated: 2022/11/09 13:08:35 by thugueno         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,7 @@ BINARY		=	${SRC:${SRCDIR}%.c=${BINARYDIR}%}
 
 BBINARY		=	${BONUS_SRC:${SRCDIR}%.c=${BINARYDIR}%}
 
-CC			=	gcc
+CC			=	clang
 
 CFLAGS		=	-Wall -Wextra -Werror
 
